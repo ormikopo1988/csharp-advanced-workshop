@@ -139,7 +139,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StackBasics", "Day 3\Generi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AssemblyBasicDemo", "AssemblyBasicDemo", "{9861788C-2F85-4FA7-9108-EA0EA3C08E27}"
 	ProjectSection(SolutionItems) = preProject
-		Day 3\DotNetAssemblies\AssemblyBasicDemo\Instructions.txt = Day 3\DotNetAssemblies\AssemblyBasicDemo\Instructions.txt
+		Day 3\DotNetAssemblies\AssemblyBasicDemo\Instructions.md = Day 3\DotNetAssemblies\AssemblyBasicDemo\Instructions.md
 		Day 3\DotNetAssemblies\AssemblyBasicDemo\MainClass.cs = Day 3\DotNetAssemblies\AssemblyBasicDemo\MainClass.cs
 		Day 3\DotNetAssemblies\AssemblyBasicDemo\MyCSharpClass.cs = Day 3\DotNetAssemblies\AssemblyBasicDemo\MyCSharpClass.cs
 		Day 3\DotNetAssemblies\AssemblyBasicDemo\MyVBClass.vb = Day 3\DotNetAssemblies\AssemblyBasicDemo\MyVBClass.vb
@@ -147,7 +147,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AssemblyBasicDemo", "Assemb
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AssemblyVsDll", "AssemblyVsDll", "{1E10DDA0-D6D8-4FBC-BEBD-92E7589CFEC1}"
 	ProjectSection(SolutionItems) = preProject
-		Day 3\DotNetAssemblies\AssemblyVsDll\Instructions.txt = Day 3\DotNetAssemblies\AssemblyVsDll\Instructions.txt
+		Day 3\DotNetAssemblies\AssemblyVsDll\Instructions.md = Day 3\DotNetAssemblies\AssemblyVsDll\Instructions.md
 		Day 3\DotNetAssemblies\AssemblyVsDll\MyFirstModule.cs = Day 3\DotNetAssemblies\AssemblyVsDll\MyFirstModule.cs
 		Day 3\DotNetAssemblies\AssemblyVsDll\MySecondModule.cs = Day 3\DotNetAssemblies\AssemblyVsDll\MySecondModule.cs
 		Day 3\DotNetAssemblies\AssemblyVsDll\Program.cs = Day 3\DotNetAssemblies\AssemblyVsDll\Program.cs
@@ -155,7 +155,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AssemblyVsDll", "AssemblyVs
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DllVsExe", "DllVsExe", "{F4DAE806-8F35-4F59-9BBB-5E58AE6AFFE7}"
 	ProjectSection(SolutionItems) = preProject
-		Day 3\DotNetAssemblies\DllVsExe\Instructions.txt = Day 3\DotNetAssemblies\DllVsExe\Instructions.txt
+		Day 3\DotNetAssemblies\DllVsExe\Instructions.md = Day 3\DotNetAssemblies\DllVsExe\Instructions.md
 		Day 3\DotNetAssemblies\DllVsExe\MainClass.cs = Day 3\DotNetAssemblies\DllVsExe\MainClass.cs
 	EndProjectSection
 EndProject
