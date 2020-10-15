@@ -39,7 +39,7 @@ namespace AsyncStreamsNetwork
             // - public_repo
             var client = new GitHubClient(new ProductHeaderValue("IssueQueryDemo"))
             {
-                Credentials = new Credentials("bb860e29d04fc186b67a8e406c726bd6d70b3b68")
+                Credentials = new Credentials("<your-github-access-token>")
             };
 
             // Without consuming async streams
