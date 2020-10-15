@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebAppCore.MVC.Models.BoardGame>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Add">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublishingCompany)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MinPlayers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxPlayers)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublishingCompany)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MinPlayers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaxPlayers)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

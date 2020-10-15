@@ -1,0 +1,13 @@
+- Open with Administrator a new Developer Command Prompt for VS2019 and point it to the current folder
+
+- Run csc MainClass.cs
+	- C# compiler please compile MainClass.cs and give me back an executable
+
+- Run csc /target:library MainClass.cs
+	- C# compiler please compile MainClass.cs and give me back a dll file
+
+- Run ildasm /out:MyExeCode.txt MainClass.exe
+
+- Run ildasm /out:MyDllCode.txt MainClass.dll
+
+- Compare the two files
