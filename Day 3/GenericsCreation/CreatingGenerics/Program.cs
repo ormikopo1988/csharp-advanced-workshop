@@ -32,7 +32,6 @@ namespace CreatingGenerics
 
         static void GenericMethodsDemo()
         {
-            // Uncomment this code for C# Generic Method demo
             var list = new CustomLinkedList<double>();
             list.AddLast(1.5);
             list.AddLast(2.2);

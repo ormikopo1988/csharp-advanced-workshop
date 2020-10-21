@@ -8,6 +8,6 @@ namespace CreatingGenerics
         void AddLast(T value);
         bool Any();
         void Remove(T data);
-        //IEnumerable<TOutput> AsEnumerableOf<TOutput>(); // Uncomment this code for C# Generic Method demo
+        IEnumerable<TOutput> AsEnumerableOf<TOutput>();
     }
 }

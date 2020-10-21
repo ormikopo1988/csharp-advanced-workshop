@@ -88,7 +88,6 @@ namespace CreatingGenerics
             }
         }
 
-        // Uncomment this code for C# Generic Method demo
         public IEnumerable<TOutput> AsEnumerableOf<TOutput>()
         {
             var converter = TypeDescriptor.GetConverter(typeof(T));
