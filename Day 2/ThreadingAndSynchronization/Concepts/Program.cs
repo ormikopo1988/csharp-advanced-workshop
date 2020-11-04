@@ -9,11 +9,11 @@ namespace Concepts
         {
             Thread thread = new Thread(PrintHelloWorld);
 
+            // We could also mark the thread as a background one explicitly
+            thread.IsBackground = true;
+
             // A worker thread starts, prints Hello World and then sleeps for 5 seconds
             thread.Start();
-
-            // We could also mark the thread as a background one
-            thread.IsBackground = true;
 
             // If we wanted to wait for the thread to finish before printing the below we could do:
             // Both Join() and Sleep() would block the thread

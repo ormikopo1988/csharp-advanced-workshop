@@ -25,11 +25,11 @@ namespace MutexLock
             // WaitOne blocks the current thread until the current instance receives a signal. It returns true when the Mutex is signaled to indicate that it is not owned
             // Try to acquire the mutex. If it is not able to acquire for the specified TimeSpan (1 second in this case) then it will not try again.
             // As a result of this code only 1 thread will be able to acquire the Mutex. All the others will step into this if statement and return.
-            //if (!mutex.WaitOne(TimeSpan.FromSeconds(1), false))
-            //{
-            //    Console.WriteLine($"{Thread.CurrentThread.Name} competed but was not able to acquire the Mutex within the specified TimeSpan.");
-            //    return;
-            //}
+            if (!mutex.WaitOne(TimeSpan.FromSeconds(1), false))
+            {
+                Console.WriteLine($"{Thread.CurrentThread.Name} competed but was not able to acquire the Mutex within the specified TimeSpan.");
+                return;
+            }
 
             // Try to acquire the mutex. Block until it will be able to. All threads will acquire the Mutex.
             //mutex.WaitOne();
