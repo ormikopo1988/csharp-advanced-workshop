@@ -2,6 +2,6 @@
 {
     public interface IMyComparer<in T>
     {
-        int Compare(T item1, T item2);
+        int Compare(T x, T y);
     }
 }

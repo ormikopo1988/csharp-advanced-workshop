@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CoAndContravariance.BasicConcepts.DemoOne
+namespace CoAndContravariance.BasicConcepts
 {
     public interface IVehicleWashManager<out T>
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CoAndContravariance.BasicConcepts.DemoOne
+namespace CoAndContravariance.BasicConcepts
 {
     public class GarageManager<T> : IGarageManager<T>
     {

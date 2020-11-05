@@ -1,4 +1,4 @@
-﻿namespace CoAndContravariance.BasicConcepts.DemoOne
+﻿namespace CoAndContravariance.BasicConcepts
 {
     public interface IGarageManager<in T>
     {

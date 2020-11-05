@@ -1,4 +1,4 @@
-﻿namespace CoAndContravariance.BasicConcepts.DemoTwo
+﻿namespace CoAndContravariance.Contravariance
 {
     public class Person
     {
