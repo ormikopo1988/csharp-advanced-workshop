@@ -8,8 +8,8 @@ namespace QueueBasics
         static void Main(string[] args)
         {
             QueueBasicOperations();
-            //QueueContainOperation();
-            //ClearQueue();
+            QueueContainOperation();
+            ClearQueue();
         }
 
         static void QueueBasicOperations()
@@ -57,6 +57,7 @@ namespace QueueBasics
             }
 
             Console.WriteLine("The element MCA is in the queue:" + queue1.Contains("MCA"));
+            Console.WriteLine("The element MC is in the queue:" + queue1.Contains("MC"));
             Console.WriteLine("The element BCA is in the queue:" + queue1.Contains("BCA"));
             Console.WriteLine("The element MTech is in the queue:" + queue1.Contains("MTech"));
         }
