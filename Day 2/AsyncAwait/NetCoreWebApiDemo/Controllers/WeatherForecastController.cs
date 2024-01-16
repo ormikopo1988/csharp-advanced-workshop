@@ -1,42 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
+using System.Threading;
+using NetCoreWebApiDemo.Interfaces;
+using System;
 
 namespace NetCoreWebApiDemo.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IForecastService _forecastService;
+        private readonly IWeatherClient _weatherClient;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IForecastService forecastService)
+        public WeatherForecastController(
+            ILogger<WeatherForecastController> logger,
+            IWeatherClient weatherClient)
         {
             _logger = logger;
-            _forecastService = forecastService;
+            _weatherClient = weatherClient;
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<WeatherForecast>> Get()
+        [HttpGet("weather/{city}")]
+        public async Task<IActionResult> Forecast(string city, CancellationToken ct)
         {
-            _logger.LogInformation($"AspNet Core Thread Id: {Thread.CurrentThread.ManagedThreadId} starts execution in {nameof(Get)}.");
+            _logger.LogInformation($"AspNet Core Thread Id: {Environment.CurrentManagedThreadId} starts execution in {nameof(Forecast)}.");
 
-            var forecastServiceTask = _forecastService.GetTodaysForecastAsync();
-            
-            for(int i=0; i<20; i++)
+            var weatherTask = _weatherClient.GetCityWeatherAsync(city, ct);
+
+            for (var i = 0; i < 5; i++)
             {
-                _logger.LogInformation($"AspNet Core Thread Id: {Thread.CurrentThread.ManagedThreadId} does synchronous work in {nameof(Get)}.");
+                _logger.LogInformation($"AspNet Core Thread Id: {Environment.CurrentManagedThreadId} does synchronous work in {nameof(Forecast)}.");
             }
 
-            var result = await forecastServiceTask;
+            var weather = await weatherTask;
 
-            _logger.LogInformation($"AspNet Core Thread Id: {Thread.CurrentThread.ManagedThreadId} about to return result from {nameof(Get)}.");
+            _logger.LogInformation($"AspNet Core Thread Id: {Environment.CurrentManagedThreadId} about to return result from {nameof(Forecast)}.");
 
-            return result;
+            return weather is not null ? Ok(weather) : NotFound();
         }
     }
 }
