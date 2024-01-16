@@ -24,7 +24,7 @@ namespace NetCoreWebApiDemo.Clients
         ///   - 3 hour forecast: 5 days
         /// https://openweathermap.org/price#weather
         /// </summary>
-        private const string OpenWeatherMapApiKey = "666bd600122fe322de08a7ebc9327c69";
+        private const string OpenWeatherMapApiKey = "<your-open-weather-map-api-key>";
 
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<OpenWeatherClient> _logger;
