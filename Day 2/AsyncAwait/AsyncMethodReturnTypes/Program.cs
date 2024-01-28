@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,7 +6,7 @@ namespace AsyncMethodReturnTypes
 {
     class Program
     {
-        static Random rnd;
+        static Random? randomNumberGenerator;
 
         static async Task Main(string[] args)
         {
@@ -20,19 +18,13 @@ namespace AsyncMethodReturnTypes
 
             // Generalized async return types and ValueTask<TResult>
             Console.WriteLine($"You rolled {await GetDiceRollAsync()}");
-
-            // Async streams with IAsyncEnumerable<T>
-            await foreach (var word in ReadWordsFromStreamAsync())
-            {
-                Console.WriteLine($"Next word read is: {word}");
-            }
         }
 
         #region Task<TResult> Return Type
 
         static async Task<string> ShowTodaysInfoAsync()
         {
-            string ret = $"Today is {DateTime.Today:D}\n" +
+            var ret = $"Today is {DateTime.Today:D}\n" +
                          "Today's hours of leisure: " +
                          $"{await GetLeisureHoursAsync()}";
 
@@ -42,7 +34,7 @@ namespace AsyncMethodReturnTypes
         static async Task<int> GetLeisureHoursAsync()
         {
             // Task.FromResult is a placeholder for actual work that returns a string.
-            var today = await Task.FromResult<string>(DateTime.Now.DayOfWeek.ToString());
+            var today = await Task.FromResult(DateTime.Now.DayOfWeek.ToString());
 
             // The method then can process the result in some way.
             int leisureHours;
@@ -53,7 +45,7 @@ namespace AsyncMethodReturnTypes
             }
             else
             {
-                leisureHours = 5;
+                leisureHours = 8;
             }
 
             return leisureHours;
@@ -88,57 +80,27 @@ namespace AsyncMethodReturnTypes
         {
             Console.WriteLine("...Shaking the dices...");
 
-            int roll1 = await RollAsync();
-            int roll2 = await RollAsync();
-            
+            var roll1 = await RollAsync();
+            var roll2 = await RollAsync();
+
             return roll1 + roll2;
         }
 
         static async ValueTask<int> RollAsync()
         {
-            if (rnd == null)
+            randomNumberGenerator ??= new Random();
+
+            var diceRoll = randomNumberGenerator.Next(1, 7);
+
+            if (diceRoll == 6)
             {
-                rnd = new Random();
-            }   
-
-            var delayTask = Task.Delay(50);
-            
-            int diceRoll = rnd.Next(1, 7);
-
-            // Audience Question: Why is this a good candidate to use ValueTask? Will execution be synchronous or asynchronous here in this particular await?
-            await delayTask;
+                // Task.Delay is a placeholder for actual work
+                // that needs to be done asynchronously whenever we 
+                // get a lucky 6!
+                await Task.Delay(5000);
+            }
 
             return diceRoll;
-        }
-
-        #endregion
-
-        #region Async streams with IAsyncEnumerable<T>
-
-        static async IAsyncEnumerable<string> ReadWordsFromStreamAsync()
-        {
-            string data =
-                @"This is a line of text.
-                Here is the second line of text.
-                And there is one more for good measure.
-                Wait, that was the penultimate line.";
-
-            using (var readStream = new StringReader(data))
-            {
-                var line = await readStream.ReadLineAsync();
-
-                while (line != null)
-                {
-                    var words = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-
-                    foreach (var word in words)
-                    {
-                        yield return word;
-                    }
-
-                    line = await readStream.ReadLineAsync();
-                }
-            }
         }
 
         #endregion
