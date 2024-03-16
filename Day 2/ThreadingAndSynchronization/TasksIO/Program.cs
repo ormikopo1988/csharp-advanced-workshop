@@ -1,48 +1,34 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿var task = Task.Factory.StartNew<string>(() => GetPosts("https://jsonplaceholder.typicode.com/posts"));
 
-namespace TasksIO
+// Here we explicitly do not block the main thread from executing SomethingElse()
+SomethingElse();
+
+try
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Task<string> task = Task.Factory.StartNew<string>(() => GetPosts("https://jsonplaceholder.typicode.com/posts"));
+    // When you type .Wait() or .Result on the task object
+    // you say that you want to wait for the result to come before continuing.
+    //task.Wait();
+    Console.WriteLine(task.Result);
+}
+// Every time we try to access the .Result from a task it can throw an AggregateException
+catch (AggregateException ex)
+{
+    Console.Error.WriteLine(ex.Message);
+}
 
-            // Here we explicitly do not block the main thread from executing SomethingElse()
-            SomethingElse();
+Console.ReadLine();
 
-            try
-            {
-                // When you type .Wait() or .Result on the task object
-                // you say that you want to wait for the result to come before continuing.
-                //task.Wait();
-                Console.WriteLine(task.Result);
-            }
-            // Every time we try to access the .Result from a task it can throw an AggregateException
-            catch (AggregateException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            
-            Console.ReadLine();
-        }
+static void SomethingElse()
+{
+    Console.WriteLine("Some other dummy operation happening in main thread.");
+}
 
-        private static void SomethingElse()
-        {
-            Console.WriteLine("Some other dummy operation happening in main thread.");
-        }
+static string GetPosts(string url)
+{
+    // Simulate exception
+    //throw null;
 
-        private static string GetPosts(string url)
-        {
-            // Simulate exception
-            //throw null;
+    using var client = new HttpClient();
 
-            using (var client = new HttpClient())
-            {
-                return client.GetStringAsync(url).Result;
-            }
-        }
-    }
+    return client.GetStringAsync(url).Result;
 }

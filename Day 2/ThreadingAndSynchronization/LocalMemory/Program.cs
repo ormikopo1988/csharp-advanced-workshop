@@ -1,31 +1,21 @@
-﻿using System;
-using System.Threading;
-
-namespace LocalMemory
+﻿// Worker Thread
+var workerThread = new Thread(PrintOneToOneHundred)
 {
-    class Program
+    Name = "WT"
+};
+workerThread.Start();
+
+// Main Thread
+Thread.CurrentThread.Name = "MT";
+PrintOneToOneHundred();
+
+Console.ReadLine();
+
+static void PrintOneToOneHundred()
+{
+    // This variable i will be part of the local memory allocated for each thread
+    for (var i = 0; i < 100; i++)
     {
-        static void Main(string[] args)
-        {
-            // Worker Thread
-            var workerThread = new Thread(PrintOneToThirty);
-            workerThread.Name = "WorkerTh";
-            workerThread.Start();
-
-            // Main Thread
-            Thread.CurrentThread.Name = "MainTh";
-            PrintOneToThirty();
-
-            Console.ReadLine();
-        }
-
-        private static void PrintOneToThirty()
-        {
-            // This variable i will be part of the local memory allocated for each thread
-            for(int i=0; i<30; i++)
-            {
-                Console.Write($"{Thread.CurrentThread.Name}: {i+1} ");
-            }
-        }
+        Console.Write($"{Thread.CurrentThread.Name}: {i + 1} ");
     }
 }
