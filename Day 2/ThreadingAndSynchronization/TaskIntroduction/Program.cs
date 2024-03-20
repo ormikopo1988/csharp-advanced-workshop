@@ -30,7 +30,7 @@ var task2 = Task.Factory.StartNew(() => MethodThatReturnsValue(),
 Console.WriteLine($"Main continues execution on Thread {Environment.CurrentManagedThreadId} after starting {nameof(MethodThatReturnsValue)} task - Option 2.");
 
 // Get the result from the Task operation - Blocking operation on current thread
-Console.WriteLine(taskThatReturnsValue.Result);
+Console.WriteLine(task2.Result);
 
 // Option 3: Task.Factory.StartNew(Action);
 // Will run on separate thread
@@ -40,7 +40,7 @@ var task3 = Task.Run(() => MethodThatReturnsValue());
 Console.WriteLine($"Main continues execution on Thread {Environment.CurrentManagedThreadId} after starting {nameof(MethodThatReturnsValue)} task - Option 3.");
 
 // Get the result from the Task operation - Blocking operation on current thread
-Console.WriteLine(taskThatReturnsValue.Result);
+Console.WriteLine(task3.Result);
 
 Console.ReadLine();
 
