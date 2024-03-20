@@ -32,7 +32,7 @@ Console.WriteLine($"Main continues execution on Thread {Environment.CurrentManag
 // Get the result from the Task operation - Blocking operation on current thread
 Console.WriteLine(task2.Result);
 
-// Option 3: Task.Factory.StartNew(Action);
+// Option 3: Task.Run(Action);
 // Will run on separate thread
 var task3 = Task.Run(() => MethodThatReturnsValue());
 
