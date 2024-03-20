@@ -1,4 +1,4 @@
-﻿var task = Task.Factory.StartNew<string>(() => GetPosts("https://jsonplaceholder.typicode.com/posts"));
+﻿var task = Task.Run(() => GetPosts("https://jsonplaceholder.typicode.com/posts"));
 
 // Here we explicitly do not block the main thread from executing SomethingElse()
 SomethingElse();
