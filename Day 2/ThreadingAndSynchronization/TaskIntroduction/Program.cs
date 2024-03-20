@@ -46,7 +46,7 @@ Console.ReadLine();
 
 static void SimpleMethod()
 {
-    Console.WriteLine($"Hello from {nameof(SimpleMethod)} on {Environment.CurrentManagedThreadId}.");
+    Console.WriteLine($"Hello from {nameof(SimpleMethod)} on Thread {Environment.CurrentManagedThreadId}.");
 }
 
 static string MethodThatReturnsValue()
@@ -54,5 +54,5 @@ static string MethodThatReturnsValue()
     // This simulates a computational intensive operation
     Thread.Sleep(2000);
 
-    return $"Hello from {nameof(MethodThatReturnsValue)} on {Environment.CurrentManagedThreadId}.";
+    return $"Hello from {nameof(MethodThatReturnsValue)} on Thread {Environment.CurrentManagedThreadId}.";
 }
