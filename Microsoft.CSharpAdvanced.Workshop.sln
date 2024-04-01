@@ -81,8 +81,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskCompletionSource", "Day
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskParallelLibraryIntroduction", "Day 2\ThreadingAndSynchronization\TaskParallelLibraryIntroduction\TaskParallelLibraryIntroduction.csproj", "{BEA449C6-2ED5-4EE6-8EC5-E0ED2D907713}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadSafety", "Day 2\ThreadingAndSynchronization\ThreadSafety\ThreadSafety.csproj", "{D4AE660B-3A36-47B0-AF31-11CF759F3FAE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreWebApiDemo", "Day 2\AsyncAwait\NetCoreWebApiDemo\NetCoreWebApiDemo.csproj", "{6F687834-FF33-4502-89FE-35D9C8EE2A22}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HandlingTransactions", "HandlingTransactions", "{FD247E36-7FAC-4856-A16A-10253667B9BE}"
@@ -147,19 +145,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DllVsExe", "DllVsExe", "{F4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreadBasicDemo", "Day 2\ThreadingAndSynchronization\ThreadBasicDemo\ThreadBasicDemo.csproj", "{E92277B6-5808-4754-B00A-5A831106BC83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextSwitching", "Day 2\ThreadingAndSynchronization\ContextSwitching\ContextSwitching.csproj", "{3635CED2-94CB-4E5E-A31A-363FCE4427AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContextSwitching", "Day 2\ThreadingAndSynchronization\ContextSwitching\ContextSwitching.csproj", "{3635CED2-94CB-4E5E-A31A-363FCE4427AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalMemory", "Day 2\ThreadingAndSynchronization\LocalMemory\LocalMemory.csproj", "{02D0CFF7-1559-441D-AC61-792FB6B98D32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalMemory", "Day 2\ThreadingAndSynchronization\LocalMemory\LocalMemory.csproj", "{02D0CFF7-1559-441D-AC61-792FB6B98D32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadPoolDemo", "Day 2\ThreadingAndSynchronization\ThreadPoolDemo\ThreadPoolDemo.csproj", "{8AD202B4-24E0-41B0-A3CE-C39ADDF07D16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreadPoolDemo", "Day 2\ThreadingAndSynchronization\ThreadPoolDemo\ThreadPoolDemo.csproj", "{8AD202B4-24E0-41B0-A3CE-C39ADDF07D16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskIntroduction", "Day 2\ThreadingAndSynchronization\TaskIntroduction\TaskIntroduction.csproj", "{01D636CA-5CF2-4C3A-B8D0-A6FCF9B5ECDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskIntroduction", "Day 2\ThreadingAndSynchronization\TaskIntroduction\TaskIntroduction.csproj", "{01D636CA-5CF2-4C3A-B8D0-A6FCF9B5ECDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksIO", "Day 2\ThreadingAndSynchronization\TasksIO\TasksIO.csproj", "{1E952648-4557-47C8-B82F-14268A01B9F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TasksIO", "Day 2\ThreadingAndSynchronization\TasksIO\TasksIO.csproj", "{1E952648-4557-47C8-B82F-14268A01B9F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskChaining", "Day 2\ThreadingAndSynchronization\TaskChaining\TaskChaining.csproj", "{91221865-9A00-4EB0-85D2-B73BD13568EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskChaining", "Day 2\ThreadingAndSynchronization\TaskChaining\TaskChaining.csproj", "{91221865-9A00-4EB0-85D2-B73BD13568EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cancellation", "Day 2\ThreadingAndSynchronization\Cancellation\Cancellation.csproj", "{B662C836-0B18-4C28-876A-EFE5F842D755}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cancellation", "Day 2\ThreadingAndSynchronization\Cancellation\Cancellation.csproj", "{B662C836-0B18-4C28-876A-EFE5F842D755}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadSafety", "Day 2\ThreadingAndSynchronization\ThreadSafety\ThreadSafety.csproj", "{D73E18C7-94C2-43D8-B747-6F7DD152497E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -283,10 +283,6 @@ Global
 		{BEA449C6-2ED5-4EE6-8EC5-E0ED2D907713}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEA449C6-2ED5-4EE6-8EC5-E0ED2D907713}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEA449C6-2ED5-4EE6-8EC5-E0ED2D907713}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4AE660B-3A36-47B0-AF31-11CF759F3FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4AE660B-3A36-47B0-AF31-11CF759F3FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4AE660B-3A36-47B0-AF31-11CF759F3FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4AE660B-3A36-47B0-AF31-11CF759F3FAE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F687834-FF33-4502-89FE-35D9C8EE2A22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F687834-FF33-4502-89FE-35D9C8EE2A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F687834-FF33-4502-89FE-35D9C8EE2A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -383,6 +379,10 @@ Global
 		{B662C836-0B18-4C28-876A-EFE5F842D755}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B662C836-0B18-4C28-876A-EFE5F842D755}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B662C836-0B18-4C28-876A-EFE5F842D755}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D73E18C7-94C2-43D8-B747-6F7DD152497E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73E18C7-94C2-43D8-B747-6F7DD152497E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73E18C7-94C2-43D8-B747-6F7DD152497E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73E18C7-94C2-43D8-B747-6F7DD152497E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -424,7 +424,6 @@ Global
 		{43AF11F7-036A-45DB-BB1A-6AE9C9FEA794} = {86E23F8C-0838-45D1-A8AF-6A303B4D523A}
 		{17385BE9-333F-4134-B4EB-287B43109925} = {86E23F8C-0838-45D1-A8AF-6A303B4D523A}
 		{BEA449C6-2ED5-4EE6-8EC5-E0ED2D907713} = {86E23F8C-0838-45D1-A8AF-6A303B4D523A}
-		{D4AE660B-3A36-47B0-AF31-11CF759F3FAE} = {86E23F8C-0838-45D1-A8AF-6A303B4D523A}
 		{6F687834-FF33-4502-89FE-35D9C8EE2A22} = {77C3A982-84AC-4A58-BA3D-C98468FE1C9B}
 		{FD247E36-7FAC-4856-A16A-10253667B9BE} = {FCDC190E-54A0-4FD9-9176-99F24510906A}
 		{78847D30-740C-489D-8176-EADCEB0119C2} = {FCDC190E-54A0-4FD9-9176-99F24510906A}
@@ -456,6 +455,7 @@ Global
 		{1E952648-4557-47C8-B82F-14268A01B9F7} = {86E23F8C-0838-45D1-A8AF-6A303B4D523A}
 		{91221865-9A00-4EB0-85D2-B73BD13568EF} = {86E23F8C-0838-45D1-A8AF-6A303B4D523A}
 		{B662C836-0B18-4C28-876A-EFE5F842D755} = {86E23F8C-0838-45D1-A8AF-6A303B4D523A}
+		{D73E18C7-94C2-43D8-B747-6F7DD152497E} = {86E23F8C-0838-45D1-A8AF-6A303B4D523A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {94C38009-4142-40ED-8A49-776D4F11EB37}

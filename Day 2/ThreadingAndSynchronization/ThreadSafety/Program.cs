@@ -4,12 +4,12 @@ using System.Threading.Tasks;
 
 namespace ThreadSafety
 {
-    class Program
+    public class Program
     {
-        static readonly object customLock = new object();
-        static Dictionary<int, string> items = new Dictionary<int, string>();
+        private static readonly object customLock = new();
+        private static readonly Dictionary<int, string> items = [];
 
-        static void Main(string[] args)
+        public static void Main()
         {
             var task1 = Task.Factory.StartNew(AddItem);
             var task2 = Task.Factory.StartNew(AddItem);
@@ -24,16 +24,16 @@ namespace ThreadSafety
 
         private static void AddItem()
         {
-            lock(customLock)
+            lock (customLock)
             {
-                Console.WriteLine("Write lock acquired by " + Task.CurrentId);
+                Console.WriteLine("Write lock acquired by thread #{0}.", Environment.CurrentManagedThreadId);
                 items.Add(items.Count, "Test Value " + items.Count);
             }
 
-            lock(customLock)
+            lock (customLock)
             {
-                Console.WriteLine("Read lock acquired by " + Task.CurrentId);
-                
+                Console.WriteLine("Read lock acquired by thread #{0}.", Environment.CurrentManagedThreadId);
+
                 foreach (var item in items)
                 {
                     Console.WriteLine(item.Key + ": " + item.Value);
