@@ -3,22 +3,22 @@ using System.Threading;
 
 namespace Deadlocks
 {
-    class Program
+    public class Program
     {
-        static readonly object customLock1 = new object();
-        static readonly object customLock2 = new object();
+        private static readonly object customLock1 = new();
+        private static readonly object customLock2 = new();
 
-        static void Main(string[] args)
+        public static void Main()
         {
             // Worker Thread
             new Thread(() =>
             {
-                lock(customLock1)
+                lock (customLock1)
                 {
                     Console.WriteLine("Worker thread acquired custom Lock 1.!");
                     Thread.Sleep(2000);
 
-                    lock(customLock2)
+                    lock (customLock2)
                     {
                         Console.WriteLine("Worker thread acquired custom Lock 2.!");
                     }
@@ -26,7 +26,7 @@ namespace Deadlocks
             }).Start();
 
             // Main Thread
-            lock(customLock2)
+            lock (customLock2)
             {
                 Console.WriteLine("Main thread acquired custom lock 2");
 
@@ -37,7 +37,7 @@ namespace Deadlocks
                 // At the same time we can create a situation here where we are making
                 // the main thread contend for custom lock 1.
                 Thread.Sleep(1000);
-                lock(customLock1)
+                lock (customLock1)
                 {
                     Console.WriteLine("Main thread acquired custom lock 2");
                 }
