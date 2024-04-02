@@ -1,9 +1,9 @@
 ﻿namespace TaskCompletionSource
 {
-    internal class Product
+    public class Product
     {
-        public int Id { get; set; }
+        public required int Id { get; init; }
 
-        public string Model { get; set; }
+        public required string Model { get; init; }
     }
 }
