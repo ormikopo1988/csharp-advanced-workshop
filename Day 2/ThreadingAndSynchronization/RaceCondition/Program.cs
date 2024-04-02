@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 
 namespace RaceCondition
 {
-    class Program
+    public class Program
     {
         private static int counter;
 
-        static void Main(string[] args)
+        public static void Main()
         {
             // Using thread
             //var t1 = new Thread(PrintStar);
@@ -21,7 +21,7 @@ namespace RaceCondition
             Task.Factory.StartNew(PrintStar);
             Task.Factory.StartNew(PrintPlus);
 
-            Console.WriteLine("Ending main thread");
+            Console.WriteLine("Ending main thread.");
 
             Console.ReadLine();
         }
@@ -30,7 +30,7 @@ namespace RaceCondition
         {
             for (counter = 0; counter < 5; counter++)
             {
-                Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId} prints: * ");
+                Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} prints: * ");
             }
         }
 
@@ -38,7 +38,7 @@ namespace RaceCondition
         {
             for (counter = 0; counter < 5; counter++)
             {
-                Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId} prints: + ");
+                Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} prints: + ");
             }
         }
     }
