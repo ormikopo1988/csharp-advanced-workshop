@@ -3,16 +3,17 @@ using System.Threading;
 
 namespace Semaphores
 {
-    class Program
+    public class Program
     {
         // Only allow 3 concurrent threads to access a certail resource
-        static SemaphoreSlim semaphoreSlim = new SemaphoreSlim(3);
+        private static readonly SemaphoreSlim semaphoreSlim = new(3);
 
-        static void Main(string[] args)
+        public static void Main()
         {
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
             {
-                // Simulating the try to enter the resource block that the semaphore is trying to protect.
+                // Simulating the try to enter the resource block
+                // that the semaphore is trying to protect.
                 new Thread(EnterSemaphore).Start();
             }
 
@@ -21,16 +22,16 @@ namespace Semaphores
 
         private static void EnterSemaphore()
         {
-            Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId} is waiting to be part of the club.");
+            Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} is waiting to be part of the club.");
 
             semaphoreSlim.Wait();
-            
-            Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId} is part of the club.");
+
+            Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} is part of the club.");
             Thread.Sleep(2000); // Simulate some operation that needs synchronization
-            
+
             semaphoreSlim.Release();
-            
-            Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId} left the club.");
+
+            Console.WriteLine($"Thread {Environment.CurrentManagedThreadId} left the club.");
         }
     }
 }
