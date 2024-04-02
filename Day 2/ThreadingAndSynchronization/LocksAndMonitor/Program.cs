@@ -1,7 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System;
+using LocksAndMonitor;
 
-Account account = new Account(20000);
+var account = new Account(20000);
 
 Task task1 = Task.Factory.StartNew(() => account.WithdrawAmount(3000));
 Task task2 = Task.Factory.StartNew(() => account.WithdrawAmount(3000));
