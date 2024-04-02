@@ -4,9 +4,9 @@ using LocksAndMonitor;
 
 var account = new Account(20000);
 
-Task task1 = Task.Factory.StartNew(() => account.WithdrawAmount(3000));
-Task task2 = Task.Factory.StartNew(() => account.WithdrawAmount(3000));
-Task task3 = Task.Factory.StartNew(() => account.WithdrawAmount(3000));
+var task1 = Task.Factory.StartNew(() => account.WithdrawAmount(3000));
+var task2 = Task.Factory.StartNew(() => account.WithdrawAmount(3000));
+var task3 = Task.Factory.StartNew(() => account.WithdrawAmount(3000));
 
 // Audience Question: What could be done here in order to not have any problem 
 // inside the code of Account class even if we did not put a lock inside the 
