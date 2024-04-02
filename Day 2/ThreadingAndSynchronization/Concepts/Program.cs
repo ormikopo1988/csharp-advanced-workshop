@@ -1,35 +1,27 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
+using System;
 
-namespace Concepts
+var thread = new Thread(PrintHelloWorld)
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Thread thread = new Thread(PrintHelloWorld);
+    // We could also mark the thread as a background one explicitly
+    IsBackground = true
+};
 
-            // We could also mark the thread as a background one explicitly
-            thread.IsBackground = true;
+// A worker thread starts, prints Hello World and then sleeps for 5 seconds
+thread.Start();
 
-            // A worker thread starts, prints Hello World and then sleeps for 5 seconds
-            thread.Start();
+// If we wanted to wait for the thread to finish before printing the below we could do:
+// Both Join() and Sleep() would block the thread
+thread.Join();
 
-            // If we wanted to wait for the thread to finish before printing the below we could do:
-            // Both Join() and Sleep() would block the thread
-            thread.Join();
+Console.WriteLine("Hello world from main thread.");
 
-            Console.WriteLine("Hello world from main thread.");
+Console.ReadKey();
 
-            Console.ReadKey();
-        }
+static void PrintHelloWorld()
+{
+    Console.WriteLine("Hello World from worker thread.");
 
-        private static void PrintHelloWorld()
-        {
-            Console.WriteLine("Hello World from worker thread.");
-
-            // Let's imagine that this process took 5 seconds to complete
-            Thread.Sleep(5000);
-        }
-    }
+    // Let's imagine that this process took 5 seconds to complete
+    Thread.Sleep(5000);
 }
