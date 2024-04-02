@@ -15,12 +15,12 @@ namespace Deadlocks
             {
                 lock (customLock1)
                 {
-                    Console.WriteLine("Worker thread acquired custom Lock 1.!");
+                    Console.WriteLine("Worker thread acquired custom lock 1.");
                     Thread.Sleep(2000);
 
                     lock (customLock2)
                     {
-                        Console.WriteLine("Worker thread acquired custom Lock 2.!");
+                        Console.WriteLine("Worker thread acquired custom lock 2.");
                     }
                 }
             }).Start();
@@ -28,7 +28,7 @@ namespace Deadlocks
             // Main Thread
             lock (customLock2)
             {
-                Console.WriteLine("Main thread acquired custom lock 2");
+                Console.WriteLine("Main thread acquired custom lock 2.");
 
                 // Let's try to simulate some kind of a deadlock situation.
                 // We want to make sure that custom lock 2 acquired by the main thread
@@ -39,7 +39,7 @@ namespace Deadlocks
                 Thread.Sleep(1000);
                 lock (customLock1)
                 {
-                    Console.WriteLine("Main thread acquired custom lock 2");
+                    Console.WriteLine("Main thread acquired custom lock 2.");
                 }
             }
 
